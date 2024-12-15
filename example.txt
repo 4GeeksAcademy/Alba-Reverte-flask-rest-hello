@@ -1,0 +1,2 @@
+en admin.py tengo que crear los modelos de las vistas de User, people, planets y favorites.
+en app.py tengo que hacer los endpoints (rutas) /people method GET /people <int:people_id>, y así con todas las rutas que vinenen en la documentación. 
