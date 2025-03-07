@@ -89,7 +89,7 @@ def add_favorite_people(people_id):
 @app.route('/favorite/planets/<int:planet_id>', methods=['DELETE'])
 def delete_favorite_planet(planet_id):
     user = User.query.first()
-    deleted_favorite = Favorite(user_id = user.id, planet_id = planet_id)
+    deleted_favorite = Favorite.query.filter_by(user_id=user.id, planet_id=planet_id).first()
     db.session.delete(deleted_favorite)
     db.session.commit()
     return jsonify("Planeta favorito borrado"), 200
@@ -98,12 +98,10 @@ def delete_favorite_planet(planet_id):
 @app.route('/favorite/people/<int:people_id>', methods=['DELETE'])
 def delete_favorite_people(people_id):
     user = User.query.first()
-    deleted_favorite = Favorite(user_id = user.id, people_id = people_id)
+    deleted_favorite = Favorite.query.filter_by(user_id=user.id, people_id=people_id).first()
     db.session.delete(deleted_favorite)
     db.session.commit()
     return jsonify("Personaje favorito borrado"), 200
-
-   
 
 
 
